@@ -67,7 +67,7 @@ export default function Home() {
 	}, [activeWebcam]);
 
 	return (
-		<div className="flex h-screen w-full items-center justify-center">
+		<div className="flex h-screen w-full items-center justify-center overflow-hidden">
 			<div className="w-[640px] h-[480px] bg-black relative overflow-hidden">
 				<video
 					muted

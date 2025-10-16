@@ -15,3 +15,7 @@
 @utility text-shadow-black-bottom {
   text-shadow: 0 2px 0 #000;
 }
+
+body, * {
+  cursor: none !important;
+}

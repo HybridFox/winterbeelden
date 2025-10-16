@@ -13,6 +13,8 @@ chromium \
   --user-data-dir="/tmp/react-playout-profile" \
   --window-size=640,480 \
   --kiosk \
+  --hide-scrollbars \ 
+  --disable-blink-features=MouseCursorOverlay \
   --app=http://localhost:5173/ \
   http://localhost:5173/ &
 

@@ -13,6 +13,8 @@ interface IWebcam {
 	name: string;
 	url?: string;
 	logoUrl?: string;
+	lineOne?: string;
+	lineTwo?: string;
 }
 
 export function meta({}: Route.MetaArgs) {
@@ -20,28 +22,66 @@ export function meta({}: Route.MetaArgs) {
 }
 
 const WEBCAMS: IWebcam[] = [
+	// {
+	// 	videoUrl: '/video-proxy/streams/latest/1/5761.mp4?dcsdesign=WTP_feratel.com',
+	// 	name: 'Sölden',
+	// 	lat: 46.9422356,
+	// 	lon: 10.9566443,
+	// 	elevation: 3040,
+	// 	logoUrl: 'https://wtvlogo.feratel.com/vlogo/1485957364000/B48438E5-88DD-4352-846F-F038E36D90AD.png',
+	// },
+	// {
+	// 	videoUrl: '/video-proxy/streams/latest/1/5770.mp4?dcsdesign=WTP_feratel.com',
+	// 	name: 'Therme Längenfeld',
+	// 	lat: 47.069672,
+	// 	lon: 10.962142,
+	// 	elevation: 1165,
+	// 	logoUrl: 'https://wtvlogo.feratel.com/vlogo/1667561598000/73F46D70-EC61-4E52-84E3-C752396FF29B.png',
+	// },
 	{
-		videoUrl: '/video-proxy/streams/latest/1/5761.mp4?dcsdesign=WTP_feratel.com',
-		name: 'Sölden',
-		lat: 46.9422356,
-		lon: 10.9566443,
-		elevation: 3040,
-		logoUrl: 'https://wtvlogo.feratel.com/vlogo/1485957364000/B48438E5-88DD-4352-846F-F038E36D90AD.png',
+		videoUrl: '/video-proxy/streams/latest/1/8020.mp4?dcsdesign=WTP_feratel.com',
+		name: 'Dilsen-Stokkem',
+		lat: 51.0390945,
+		lon: 5.6706113,
+		elevation: 40,
+		lineOne: 'Visitor Center',
+		lineTwo: 'De Wissen',
 	},
 	{
-		videoUrl: '/video-proxy/streams/latest/1/5770.mp4?dcsdesign=WTP_feratel.com',
-		name: 'Therme Längenfeld',
-		lat: 47.069672,
-		lon: 10.962142,
-		elevation: 1165,
-		logoUrl: 'https://wtvlogo.feratel.com/vlogo/1667561598000/73F46D70-EC61-4E52-84E3-C752396FF29B.png',
+		videoUrl: '/video-proxy/streams/latest/1/8087.mp4?dcsdesign=WTP_feratel.com',
+		name: 'Maasmechelen',
+		lat: 50.9613335,
+		lon: 5.6402933,
+		elevation: 60,
+		lineOne: 'St. Barbarakirche',
+		// lineTwo: '',
 	},
 	{
-		videoUrl: '/video-proxy/streams/latest/1/5762.mp4?dcsdesign=WTP_feratel.com',
-		name: 'Giggijoch',
-		lat: 46.9726868,
-		lon: 10.9679408,
-		elevation: 2275,
+		videoUrl: '/video-proxy/streams/latest/1/8050.mp4?dcsdesign=WTP_feratel.com',
+		name: 'Lubbeek',
+		lat: 50.8817301,
+		lon: 4.8089648,
+		elevation: 45,
+		lineOne: 'Craywinckelhof',
+		lineTwo: 'De Wissen',
+	},
+	{
+		videoUrl: '/video-proxy/streams/latest/1/8087.mp4?dcsdesign=WTP_feratel.com',
+		name: 'De Haan',
+		lat: 51.26734,
+		lon: 3.0085622,
+		elevation: 5,
+		// lineOne: 'Craywinckelhof',
+		// lineTwo: 'De Wissen',
+	},
+	{
+		videoUrl: '/video-proxy/streams/latest/1/8037.mp4?dcsdesign=WTP_feratel.com',
+		name: 'Zeebrugge',
+		lat: 51.3189124,
+		lon: 3.1681947,
+		elevation: 3,
+		lineOne: 'Zeedijk',
+		// lineTwo: 'De Wissen',
 	},
 ];
 
@@ -109,8 +149,8 @@ export default function Home() {
 					>
 						<div className="absolute left-[50px] h-[68px] w-[400px] -skew-x-36 bg-gradient-to-b from-pano-dark-blue to-pano-blue"></div>
 					</div>
-					<p className="relative text-[20px] leading-6 left-[110px] text-white text-shadow-black-bottom">Something something</p>
-					<p className="relative text-[20px] leading-6 left-[110px] text-white text-shadow-black-bottom">Second line - Test 123</p>
+					<p className="relative text-[20px] leading-6 left-[110px] text-white text-shadow-black-bottom">{activeWebcam.lineOne}</p>
+					<p className="relative text-[20px] leading-6 left-[110px] text-white text-shadow-black-bottom">{activeWebcam.lineTwo}</p>
 				</div>
 				{/* Right */}
 				<div className="absolute -right-[10px] bottom-[122px] h-[23px] w-[150px]">

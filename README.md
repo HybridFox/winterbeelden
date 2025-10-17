@@ -2,30 +2,18 @@ Xvfb :10 -screen 0 640x480x24 -nocursor &
 
 export DISPLAY=:10
 
-chromium \
-  --disable-gpu \
-  --no-sandbox \
-  --disable-web-security \
-  --disable-site-isolation-trials \
-  --disable-features=IsolateOrigins,site-per-process,BlockInsecurePrivateNetworkRequests \
-  --allow-running-insecure-content \
-  --ignore-certificate-errors \
-  --user-data-dir="/tmp/react-playout-profile" \
-  --window-size=640,480 \
-  --kiosk \
-  --hide-scrollbars \ 
-  --disable-blink-features=MouseCursorOverlay \
-  --app=http://localhost:5173/ \
-  http://localhost:5173/ &
+chromium --disable-gpu --no-sandbox --disable-web-security --disable-site-isolation-trials --disable-features=IsolateOrigins,site-per-process,BlockInsecurePrivateNetworkRequests --allow-running-insecure-content --ignore-certificate-errors --user-data-dir="/tmp/react-playout-profile" --window-size=640,480 --kiosk --force-device-scale-factor=1 --hide-scrollbars http://localhost:5173/
 
 ffmpeg \
   -f x11grab \
+  -crop "crop=640:480:0:0,scale=640:480" \
   -video_size 640x480 \
   -i :10 \
   -r 25 \
   -c:v libx264 -preset ultrafast -pix_fmt yuv420p \
   -f hls \
   -hls_time 2 \
-  -hls_list_size 10 \
-  -hls_flags delete_segments \
+  -hls_list_size 5 \
+  -hls_flags delete_segments+append_list \
+  -start_number 0 \
   /tmp/hls/stream.m3u8
